@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "734637599260",
+    "project_id": "login-register-ricette",
+    "storage_bucket": "login-register-ricette.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:734637599260:android:01c89203e2b2ab86a00dd9",
+        "android_client_info": {
+          "package_name": "com.example.progettoricettaesameu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhPLBu6ohXbn9tdP1_lncoNzyel0NIqoc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
