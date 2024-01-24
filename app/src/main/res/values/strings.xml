@@ -3,4 +3,11 @@
     <string name="login_subtitle"><![CDATA[Benvenuti all-applicazione COOKING dove possiamo imparare e insegnare ricette di cucina]]></string>
     <string name="introduction_button_signin">Registrati</string>
     <string name="login_button_loggin">Accedi</string>
+    <string name="signin_button_createaccount">Registrati</string>
+    <string name="login_sign_in">Non sei ancora registrato? Registrati</string>
+    <string name="signin_form_real_name">Nome</string>
+    <string name="signin_form_nickname">Nick Name</string>
+    <string name="signin_form_email">Email</string>
+    <string name="signin_form_password">Password</string>
+    <string name="signin_form_repeat_password">Password</string>
 </resources>
