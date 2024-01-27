@@ -31,4 +31,8 @@
     <color name="outline">#39424E</color>
     <color name="gfg_green">#0f9d58</color>
 
+
+    <color name="background_component">#1D1E33</color>
+    <color name="background_component_selected">#FF111328</color>
+
 </resources>
