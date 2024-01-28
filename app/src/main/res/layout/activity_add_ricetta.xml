@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="109dp" />
+        app:layout_constraintGuide_begin="119dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="411dp" />
+        app:layout_constraintGuide_begin="365dp" />
 
     <include
         android:id="@+id/viewHeader"
@@ -51,42 +51,40 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/viewDolce"
-        android:layout_width="70dp"
+        android:layout_width="77dp"
         android:layout_height="55dp"
         app:cardBackgroundColor="@color/background_component"
         app:cardCornerRadius="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/guideline2"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintHorizontal_bias="0.40"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toEndOf="@+id/viewSalato"
         app:layout_constraintTop_toTopOf="@+id/guideline1"
         app:layout_constraintVertical_bias="0.777">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="DOLCE"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            />
-
+            <CheckBox
+                android:id="@+id/chkDolce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dolce"
+                android:textColor="@color/white" />
 
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/viewSalato"
-        android:layout_width="70dp"
+        android:layout_width="78dp"
         android:layout_height="55dp"
         android:layout_marginLeft="104dp"
         app:cardBackgroundColor="@color/background_component"
@@ -95,18 +93,20 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline1"
         app:layout_constraintVertical_bias="0.777">
+
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical">
 
-            <TextView
+            <CheckBox
+                android:id="@+id/chkSalato"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SALATO"
-                android:textAllCaps="true"
-                android:textColor="@color/white" />
+                android:text="Salato"
+                android:textColor="@color/white"
+                />
 
 
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -120,48 +120,48 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintVertical_bias="0"
-        android:text="Continente di orgine del piattContinente di origine del piatto"
+        android:text="Continente di orgine del piatto"
         android:textSize="15dp"
         android:textAlignment="center" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/viwEuropa"
-        android:layout_width="70dp"
+        android:layout_width="78dp"
         android:layout_height="55dp"
         android:layout_marginLeft="68dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         app:cardBackgroundColor="@color/background_component"
         app:cardCornerRadius="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/viwAsia"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@id/guideline2">
+
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical">
 
-            <TextView
+            <CheckBox
+                android:id="@+id/chkEuropa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="EUROPA"
-                android:textAllCaps="true"
-                android:textColor="@color/white"
-                />
-
+                android:text="Europa"
+                android:textColor="@color/white" />
 
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-     </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/viwAsia"
-        android:layout_width="70dp"
+        android:layout_width="77dp"
         android:layout_height="55dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginRight="164dp"
+        android:layout_marginTop="40dp"
         app:cardBackgroundColor="@color/background_component"
         app:cardCornerRadius="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/viwAfrica"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@id/guideline2">
 
@@ -171,14 +171,12 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <TextView
+            <CheckBox
+                android:id="@+id/chkAsia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ASIA"
-                android:textAllCaps="true"
-                android:textColor="@color/white"
-                />
-
+                android:text="Asia"
+                android:textColor="@color/white" />
 
 
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -186,29 +184,27 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/viwAfrica"
-        android:layout_width="70dp"
+        android:layout_width="77dp"
         android:layout_height="55dp"
-        android:layout_marginTop="60dp"
-
+        android:layout_marginTop="40dp"
         android:layout_marginRight="68dp"
         app:cardBackgroundColor="@color/background_component"
         app:cardCornerRadius="16dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@id/guideline2">
+
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical">
 
-            <TextView
+            <CheckBox
+                android:id="@+id/chkAfrica"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="AFRICA"
-                android:textAllCaps="true"
-                android:textColor="@color/white"
-                />
-
+                android:text="Africa"
+                android:textColor="@color/white" />
 
 
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -218,14 +214,15 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/viwAmerca"
-        android:layout_width="70dp"
+        android:layout_width="85dp"
         android:layout_height="55dp"
         android:layout_marginLeft="68dp"
-        android:layout_marginBottom="32dp"
         app:cardBackgroundColor="@color/background_component"
         app:cardCornerRadius="16dp"
-        app:layout_constraintBottom_toTopOf="@id/guideline4"
-        app:layout_constraintLeft_toLeftOf="parent">
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/viwOceania"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:ignore="MissingConstraints">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -233,11 +230,11 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <TextView
+            <CheckBox
+                android:id="@+id/chkAmerica"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="AMERICA"
-                android:textAllCaps="true"
+                android:text="America"
                 android:textColor="@color/white" />
 
 
@@ -248,14 +245,14 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/viwOceania"
-        android:layout_width="70dp"
+        android:layout_width="85dp"
         android:layout_height="55dp"
-        android:layout_marginRight="166dp"
-        android:layout_marginBottom="32dp"
         app:cardBackgroundColor="@color/background_component"
         app:cardCornerRadius="16dp"
-        app:layout_constraintBottom_toTopOf="@id/guideline4"
-        app:layout_constraintRight_toRightOf="parent" >
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/viwAntartide"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:ignore="MissingConstraints">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -263,11 +260,11 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <TextView
+            <CheckBox
+                android:id="@+id/chkOceania"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="OCEANIA"
-                android:textAllCaps="true"
+                android:text="Oceania"
                 android:textColor="@color/white" />
 
 
@@ -276,14 +273,14 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/viwAntartide"
-        android:layout_width="74dp"
+        android:layout_width="90dp"
         android:layout_height="56dp"
-        android:layout_marginRight="64dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginRight="55dp"
         app:cardBackgroundColor="@color/background_component"
         app:cardCornerRadius="16dp"
-        app:layout_constraintBottom_toTopOf="@id/guideline4"
-        app:layout_constraintRight_toRightOf="parent">
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:ignore="MissingConstraints">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -291,21 +288,137 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <TextView
+            <CheckBox
+                android:id="@+id/chkAntartide"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ANTARTIDE"
-                android:textAllCaps="true"
-                android:textColor="@color/white"
-                />
-
-
-
+                android:text="Antartide"
+                android:textColor="@color/white" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-
     </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="460dp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/CaptionText"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
+       app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="0"
+        android:text="Scrivere gli ingredienti nel seguente modo(pasta,riso..."
+        android:textSize="15dp"
+        android:textAlignment="center" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/CaptionText"
+        app:layout_constraintTop_toTopOf="@+id/guideline5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="0"
+        android:text="Scrivere la ricetta"
+        android:textSize="15dp"
+        android:textAlignment="center" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilEmail"
+        style="@style/FormTextInputLayout"
+        android:layout_width="376dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline4" >
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etIngredientiR"
+        style="@style/FormEditText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:imeOptions="actionNext"
+        android:hint="(pasta,riso,carote,....)"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etIngredienti"
+        style="@style/FormTextInputLayout"
+        android:layout_width="376dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline5" >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etRicetta"
+            style="@style/FormEditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:imeOptions="actionNext"
+            android:hint="(ricetta)"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineUltima"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="542dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/addButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/PrimaryButton"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:text="Aggiungi Ricetta"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineUltima">
+
+    </com.google.android.material.button.MaterialButton>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/CaptionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome della ricetta"
+        android:textAlignment="center"
+        android:textSize="15dp"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineUltima" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tNomeRicetta"
+        style="@style/FormTextInputLayout"
+        android:layout_width="216dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guidelineUltima">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etNomeRicetta"
+            style="@style/FormEditText"
+            android:layout_width="219dp"
+            android:layout_height="50dp"
+            android:hint="Nome"
+            android:imeOptions="actionNext" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

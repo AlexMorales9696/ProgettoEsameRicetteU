@@ -1,72 +1,55 @@
 package com.example.progettoricettaesameu
 
-
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import androidx.cardview.widget.CardView
-import androidx.core.content.ContextCompat
+import android.widget.Button
+import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.firestore.FirebaseFirestore
+
 
 class activity_addRicetta : AppCompatActivity() {
-    private var isMaleSelected: Boolean = false
-    private var  isFemaleSelected: Boolean = true
-    private var cont : Int=0;
 
-    private lateinit var viewMale: CardView
-    private lateinit var viewFemale: CardView
+    val db = FirebaseFirestore.getInstance()
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_ricetta)
-        initComponent()
-        initListener()
-        initUI()
+        val addButton: Button =findViewById(R.id.addButton)
+        val analtycs= FirebaseAnalytics.getInstance(this)
+        val bundle=Bundle()
+        bundle.putString("message","app")
+        analtycs.logEvent("mainavc",bundle)
+        addButton.setOnClickListener{aggiungidb()}
 
 
     }
+    fun aggiungidb(){
+        val ingredientiR = findViewById<EditText>(R.id.etIngredientiR)
+        val ingredientiRdb= ingredientiR.text.toString()
+        val procedimentoR = findViewById<EditText>(R.id.etRicetta)
+        val procediemntoRdb= procedimentoR.text.toString()
+        val nomeR = findViewById<EditText>(R.id.etNomeRicetta)
+        val nomeRdb= nomeR.text.toString()
 
 
-    private fun initComponent(){
-        viewMale= findViewById(R.id.viewSalato)
-        viewFemale = findViewById(R.id.viewDolce)
+        val ricetta = hashMapOf(
+            "tipoPiatto" to "",
+            "continente" to  "String?=null,",
+            "Ingredienti" to (ingredientiRdb),
+            "procedimentoRicetta" to (procediemntoRdb),
+            "nomePiatto" to (nomeRdb),
+        )
+        db.collection("ricette")
+            .add(ricetta)
+            .addOnSuccessListener { documentReference ->
+                println("Documento aggiunto con ID")
+            }
+            .addOnFailureListener { e ->
+                println("Errore durante l'aggiunta del documento")
+            }
     }
-    private fun initListener() {
-        viewMale.setOnClickListener {
-            changeTipo()
-            setTipoColor()
-        }
-
-        viewFemale.setOnClickListener {
-            changeTipo()
-            setTipoColor()
-        }
-    }
-
-
-    private fun changeTipo() {
-        isMaleSelected = !isMaleSelected
-        isFemaleSelected = !isFemaleSelected
-    }
-
-    private fun setTipoColor() {
-        viewMale.setCardBackgroundColor(getBackgroundColor(isMaleSelected))
-        viewFemale.setCardBackgroundColor(getBackgroundColor(isFemaleSelected))
-    }
-    private fun getBackgroundColor(isSelectedComponent: Boolean): Int {
-
-        val colorReference = if (isSelectedComponent) {
-            R.color.background_component_selected
-        } else {
-            R.color.background_component
-        }
-
-        return ContextCompat.getColor(this, colorReference)
-    }
-
-    private fun initUI() {
-        setTipoColor()
-    }
-
 
 }
