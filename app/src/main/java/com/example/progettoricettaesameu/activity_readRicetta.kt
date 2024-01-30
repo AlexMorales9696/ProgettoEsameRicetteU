@@ -18,7 +18,8 @@ private lateinit var chkamericaRead: CheckBox
 private lateinit var chkoceaniaRead: CheckBox
 private lateinit var chkantartideRead: CheckBox
 private val utilityFunctions = UtilityFunctions()
-private var ingredientiScelti:String=""
+private var ingredientiScelti: String = ""
+
 class activity_readRicetta : AppCompatActivity() {
 
     val db = FirebaseFirestore.getInstance()
@@ -36,6 +37,7 @@ class activity_readRicetta : AppCompatActivity() {
         btnIndietroHome.setOnClickListener { navigateToback() }
 
     }
+
     private fun LeggeredaDB() {
         var textViewExample = findViewById<TextView>(R.id.etRicettaRead)
         chkdolceRead = findViewById(R.id.chkSalatoFinale)
@@ -57,19 +59,23 @@ class activity_readRicetta : AppCompatActivity() {
         )
 
         val ingredientiR1 = findViewById<EditText>(R.id.etIngredientiRicercaDB)
-        val ingredientiRdb1= ingredientiR1.text.toString()
+        val ingredientiRdb1 = ingredientiR1.text.toString()
 
         if (chkdolceRead.isChecked && chksalatoRead.isChecked) {
-            Toast.makeText(this, "Devi selezionare solo una delle due checkbox (Salato o Dolce)", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                "Devi selezionare solo una delle due checkbox (Salato o Dolce)",
+                Toast.LENGTH_SHORT
+            ).show()
             return
         } else if (!chkdolceRead.isChecked && !chksalatoRead.isChecked) {
-            Toast.makeText(this, "Devi selezionare almeno una delle due checkbox (Salato o Dolce)", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                "Devi selezionare almeno una delle due checkbox (Salato o Dolce)",
+                Toast.LENGTH_SHORT
+            ).show()
             return
         }
-        /*if (!chkeuropaRead.isChecked && !chkafricaRead.isChecked&& !chkasiaRead.isChecked&& !chkamericaRead.isChecked&& !chkoceaniaRead.isChecked&& !chkantartideRead.isChecked) {
-            Toast.makeText(this, "Devi selezionare un continente", Toast.LENGTH_SHORT).show()
-            return
-        }*/
         var numeroContinentiSelezionati = 0
 
         if (chkeuropaRead.isChecked) {
@@ -92,7 +98,8 @@ class activity_readRicetta : AppCompatActivity() {
         }
 
         if (numeroContinentiSelezionati != 1) {
-            Toast.makeText(this, "Devi selezionare esattamente un continente", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Devi selezionare esattamente un continente", Toast.LENGTH_SHORT)
+                .show()
             return
         }
 
@@ -112,7 +119,9 @@ class activity_readRicetta : AppCompatActivity() {
                 var ricettaPresadb = "" // Dichiarare e inizializzare qui
                 for (document in result) {
                     ricettaPresadb += "Nome Piatto: ${document.get("nomePiatto").toString()}\n"
-                    ricettaPresadb += "Procedimento Ricetta: ${document.get("procedimentoRicetta").toString()}\n"
+                    ricettaPresadb += "Procedimento Ricetta: ${
+                        document.get("procedimentoRicetta").toString()
+                    }\n"
                 }
 
                 Log.d("activity_readRicetta", "leerSele - ricettaPresadb: $ricettaPresadb")
@@ -136,14 +145,13 @@ class activity_readRicetta : AppCompatActivity() {
                 Log.d("TAG", "leerSele - error: $exception")
             }
     }
+
     private fun navigateToback() {
         val intent = Intent(this, activity_home::class.java)
         startActivity(intent)
     }
 
-    public fun SperaIngredienti(){
+    public fun SperaIngredienti() {
         Log.d("Tag", "Valore di ingredientiRdb: $ingredientiScelti")
-        //ingredientiScelti=
-
     }
 }

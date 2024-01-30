@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatTextView
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 
@@ -20,6 +21,15 @@ class activity_Login : AppCompatActivity() {
         FirebaseApp.initializeApp(this)
         //auth =Firebase.auth
         auth =FirebaseAuth.getInstance()
+        val tvForgotPassword = findViewById<AppCompatTextView>(R.id.tvForgotPassword)
+
+        tvForgotPassword.setOnClickListener {
+            // Aggiungi qui l'azione che desideri eseguire quando il TextView viene cliccato
+            // Per esempio, puoi aprire un'altra attività, visualizzare un messaggio, ecc.
+            // Esempio: Aprire un'altra attività
+            val intent = Intent(this, activity_sign_in::class.java)
+            startActivity(intent)
+        }
         loginButton.setOnClickListener {performLogin() }
 
     }
