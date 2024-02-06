@@ -1,4 +1,5 @@
 package com.example.progettoricettaesameu
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,26 +16,16 @@ class activity_Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-  //fare il link per andare se non sei registrato
 
-        val loginButton:Button=findViewById(R.id.btnLogin)
+        val loginButton: Button = findViewById(R.id.btnLogin)
         FirebaseApp.initializeApp(this)
         //auth =Firebase.auth
-        auth =FirebaseAuth.getInstance()
-        val tvForgotPassword = findViewById<AppCompatTextView>(R.id.tvForgotPassword)
-
-        tvForgotPassword.setOnClickListener {
-            // Aggiungi qui l'azione che desideri eseguire quando il TextView viene cliccato
-            // Per esempio, puoi aprire un'altra attività, visualizzare un messaggio, ecc.
-            // Esempio: Aprire un'altra attività
-            val intent = Intent(this, activity_sign_in::class.java)
-            startActivity(intent)
-        }
-        loginButton.setOnClickListener {performLogin() }
+        auth = FirebaseAuth.getInstance()
+        loginButton.setOnClickListener { performLogin() }
 
     }
-    private fun performLogin(){
-     //lets get input frmo the user
+
+    private fun performLogin() {
         val email = findViewById<EditText>(R.id.etEmail)
         val password = findViewById<EditText>(R.id.etPassword)
 

@@ -18,7 +18,6 @@ private lateinit var chkamericaRead: CheckBox
 private lateinit var chkoceaniaRead: CheckBox
 private lateinit var chkantartideRead: CheckBox
 private val utilityFunctions = UtilityFunctions()
-private var ingredientiScelti: String = ""
 
 class activity_readRicetta : AppCompatActivity() {
 
@@ -35,7 +34,6 @@ class activity_readRicetta : AppCompatActivity() {
         analtycs.logEvent("mainavc", bundle)
         btnRicercaFinale.setOnClickListener { LeggeredaDB() }
         btnIndietroHome.setOnClickListener { navigateToback() }
-
     }
 
     private fun LeggeredaDB() {
@@ -149,9 +147,5 @@ class activity_readRicetta : AppCompatActivity() {
     private fun navigateToback() {
         val intent = Intent(this, activity_home::class.java)
         startActivity(intent)
-    }
-
-    public fun SperaIngredienti() {
-        Log.d("Tag", "Valore di ingredientiRdb: $ingredientiScelti")
     }
 }

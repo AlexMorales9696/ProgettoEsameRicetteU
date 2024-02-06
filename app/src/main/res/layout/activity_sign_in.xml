@@ -117,8 +117,20 @@
                     android:textColorHighlight="@color/error_dark"
                     android:textColorHint="@color/error_dark" />
 
+                <TextView
+                    android:id="@+id/tvPasswordError"
+                    style="@style/FormTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!-- ... -->
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilRepeatPassword"
@@ -142,7 +154,19 @@
                     android:textColorHighlight="@color/error_dark"
                     android:textColorHint="@color/error_dark" />
 
+                <TextView
+                    android:id="@+id/tvRepeatPasswordError"
+                    style="@style/FormTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etRepeatPassword" />
+
             </com.google.android.material.textfield.TextInputLayout>
+
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCreateAccount"
@@ -170,6 +194,16 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
+    <TextView
+        android:id="@+id/tvGenericError"
+        style="@style/FormTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etRepeatPassword" />
 
 
 

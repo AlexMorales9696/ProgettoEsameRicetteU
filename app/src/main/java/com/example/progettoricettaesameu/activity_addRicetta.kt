@@ -13,7 +13,7 @@ import com.example.progettoricettaesameu.utility.UtilityFunctions
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.firestore.FirebaseFirestore
 
-private lateinit  var chksalato: CheckBox
+private lateinit var chksalato: CheckBox
 private lateinit var chkdolce: CheckBox
 private lateinit var chkeuropa: CheckBox
 private lateinit var chkafrica: CheckBox
@@ -26,22 +26,21 @@ private val utilityFunctions = UtilityFunctions()
 class activity_addRicetta : AppCompatActivity() {
 
     val db = FirebaseFirestore.getInstance()
-  
-
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_ricetta)
-        val addButton: Button =findViewById(R.id.addButton)
-        val analtycs= FirebaseAnalytics.getInstance(this)
-        val bundle=Bundle()
-        bundle.putString("message","app")
-        analtycs.logEvent("mainavc",bundle)
-        addButton.setOnClickListener{
+        val addButton: Button = findViewById(R.id.addButton)
+        val analtycs = FirebaseAnalytics.getInstance(this)
+        val bundle = Bundle()
+        bundle.putString("message", "app")
+        analtycs.logEvent("mainavc", bundle)
+        addButton.setOnClickListener {
             aggiungidb()
             navigateToHome()
         }
     }
+
     fun aggiungidb() {
         val ingredientiR = findViewById<EditText>(R.id.etIngredientiR)
         val procedimentoR = findViewById<EditText>(R.id.etRicetta)
@@ -58,19 +57,29 @@ class activity_addRicetta : AppCompatActivity() {
 
         // Controlli sulle checkbox Dolce e Salato
         if (chkdolce.isChecked && chksalato.isChecked) {
-            Toast.makeText(this, "Devi selezionare solo una delle due checkbox (Salato o Dolce)", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                "Devi selezionare solo una delle due checkbox (Salato o Dolce)",
+                Toast.LENGTH_SHORT
+            ).show()
             return
         } else if (!chkdolce.isChecked && !chksalato.isChecked) {
-            Toast.makeText(this, "Devi selezionare almeno una delle due checkbox (Salato o Dolce)", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                "Devi selezionare almeno una delle due checkbox (Salato o Dolce)",
+                Toast.LENGTH_SHORT
+            ).show()
             return
         }
 
         // Controlli sui continenti
-        val continentiSelezionati = listOf(chkeuropa, chkafrica, chkasia, chkamerica, chkoceania, chkantartide)
-            .filter { it.isChecked }
+        val continentiSelezionati =
+            listOf(chkeuropa, chkafrica, chkasia, chkamerica, chkoceania, chkantartide)
+                .filter { it.isChecked }
 
         if (continentiSelezionati.size != 1) {
-            Toast.makeText(this, "Devi selezionare esattamente un continente", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Devi selezionare esattamente un continente", Toast.LENGTH_SHORT)
+                .show()
             return
         }
 
@@ -105,8 +114,8 @@ class activity_addRicetta : AppCompatActivity() {
             }
     }
 
-    private fun navigateToHome(){
-        val intent= Intent(this,activity_home::class.java)
+    private fun navigateToHome() {
+        val intent = Intent(this, activity_home::class.java)
         startActivity(intent)
     }
 

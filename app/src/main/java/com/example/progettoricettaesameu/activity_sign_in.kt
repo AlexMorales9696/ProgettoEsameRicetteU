@@ -29,36 +29,36 @@ class activity_sign_in : AppCompatActivity() {
 
     //lets get email and password from the user
     private fun perfromSingUp() {
-
         val email = findViewById<EditText>(R.id.etEmail)
         val password = findViewById<EditText>(R.id.etPassword)
-
-
+        val passwordRepeat = findViewById<EditText>(R.id.etRepeatPassword)
 
         if (email.text!!.isEmpty() || password.text!!.isEmpty()) {
-            Toast.makeText(this, "Pleas fill all fields", Toast.LENGTH_SHORT)
-                .show()
+            Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
             return
         }
 
         val inputEmail = email.text.toString()
         val inputPassword = password.text.toString()
+        val passwordRepeatR = passwordRepeat.text.toString()
 
-        auth.createUserWithEmailAndPassword(inputEmail, inputPassword)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    //next the activity:main
-
-                    val intent = Intent(this, activity_home::class.java)
-                    startActivity(intent)
-                    Toast.makeText(this, "Successful", Toast.LENGTH_SHORT).show()
-                } else {
-                    //if sing in false, display a messanger tu the user
-                    Toast.makeText(this, "Error occurred", Toast.LENGTH_SHORT).show()
+        if (inputPassword == passwordRepeatR) {
+            auth.createUserWithEmailAndPassword(inputEmail, inputPassword)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        // next activity: main
+                        val intent = Intent(this, activity_home::class.java)
+                        startActivity(intent)
+                        Toast.makeText(this, "Successful", Toast.LENGTH_SHORT).show()
+                    } else {
+                        // if sign in fails, display a message to the user
+                        Toast.makeText(this, "Error occurred", Toast.LENGTH_SHORT).show()
+                    }
                 }
-
-
-            }
+        } else {
+            // Passwords do not match, show a message to the user
+            Toast.makeText(this, "Le password non corrispondono", Toast.LENGTH_SHORT).show()
+        }
     }
 
 }
