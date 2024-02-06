@@ -107,11 +107,21 @@ class activity_addRicetta : AppCompatActivity() {
         db.collection("ricette")
             .add(ricetta)
             .addOnSuccessListener { documentReference ->
-                println("Documento aggiunto con ID")
+                println("Documento aggiunto con ID: ${documentReference.id}")
+
+                // Mostra un messaggio di successo
+                Toast.makeText(this, "Ricetta aggiunta con successo!", Toast.LENGTH_SHORT).show()
+
+                // Naviga verso l'activity_home
+                navigateToHome()
             }
             .addOnFailureListener { e ->
-                println("Errore durante l'aggiunta del documento")
+                println("Errore durante l'aggiunta del documento: $e")
+
+                // Mostra un messaggio di errore in caso di fallimento
+                Toast.makeText(this, "Errore durante l'aggiunta della ricetta", Toast.LENGTH_SHORT).show()
             }
+
     }
 
     private fun navigateToHome() {
