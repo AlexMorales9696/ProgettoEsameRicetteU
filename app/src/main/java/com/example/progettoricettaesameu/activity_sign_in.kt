@@ -19,15 +19,12 @@ class activity_sign_in : AppCompatActivity() {
         setContentView(R.layout.activity_sign_in)
         val registerButton: Button = findViewById(R.id.btnCreateAccount)
         FirebaseApp.initializeApp(this)
-        //auth =Firebase.auth
         auth =FirebaseAuth.getInstance()
-        //auth
         registerButton.setOnClickListener { perfromSingUp() }
 
 
     }
 
-    //lets get email and password from the user
     private fun perfromSingUp() {
         val email = findViewById<EditText>(R.id.etEmail)
         val password = findViewById<EditText>(R.id.etPassword)
@@ -46,17 +43,14 @@ class activity_sign_in : AppCompatActivity() {
             auth.createUserWithEmailAndPassword(inputEmail, inputPassword)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        // next activity: main
                         val intent = Intent(this, activity_home::class.java)
                         startActivity(intent)
                         Toast.makeText(this, "Successful", Toast.LENGTH_SHORT).show()
                     } else {
-                        // if sign in fails, display a message to the user
                         Toast.makeText(this, "Error occurred", Toast.LENGTH_SHORT).show()
                     }
                 }
         } else {
-            // Passwords do not match, show a message to the user
             Toast.makeText(this, "Le password non corrispondono", Toast.LENGTH_SHORT).show()
         }
     }
